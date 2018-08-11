@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 114512431857005730}
   m_Layer: 0
   m_Name: SchmoozeSpawnerObj
-  m_TagString: Untagged
+  m_TagString: Spawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -126,8 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnInterval: 1
-  objectToSpawn: {fileID: 1128336425672996, guid: 6892fd97dd2a84614b77709d130dde2c,
-    type: 2}
+  objectToSpawn: {fileID: 0}
 --- !u!135 &135770937633680818
 SphereCollider:
   m_ObjectHideFlags: 1
