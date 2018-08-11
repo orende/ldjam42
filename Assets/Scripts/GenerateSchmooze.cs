@@ -24,7 +24,7 @@ public class GenerateSchmooze : MonoBehaviour {
 			// Debug.Log("Spawning schmooze");
 			Vector3 spawnPos = findNextSpawnPosition();
 			if (!spawnPos.Equals(Vector3.negativeInfinity)) {
-				Debug.Log("Spawnpos " + spawnPos);
+				// Debug.Log("Spawnpos " + spawnPos);
 				GameObject newSchmooze = Object.Instantiate(objectToSpawn, spawnPos, Quaternion.identity);
 				newSchmooze.SetActive(true);
 			}
@@ -43,7 +43,7 @@ public class GenerateSchmooze : MonoBehaviour {
 
 	        if (Physics.Raycast(transform.position, fwd, out hitInfo, spawnDist)) {
 	            Debug.DrawRay(transform.position, fwd * spawnDist, Color.red);
-	            print("There is something in front of the object! " + hitInfo.transform.gameObject.name);
+	            // print("There is something in front of the object! " + hitInfo.transform.gameObject.name);
 	        } else {
 	            Debug.DrawRay(transform.position, fwd * spawnDist, Color.red);
 	            foundPos = transform.position + fwd * spawnDist;
