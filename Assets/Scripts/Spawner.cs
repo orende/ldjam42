@@ -6,12 +6,16 @@ using UnityEngine.EventSystems;
 public class Spawner : MonoBehaviour {
 
     public GameObject objectToSpawn;
-	// Use this for initialization
+	
 	void Start () {
         EventTrigger trigger = GetComponent<EventTrigger>();
+        EventTrigger.Entry entry = new EventTrigger.Entry();
+        entry.eventID = EventTriggerType.PointerDown;
+        entry.callback.AddListener((data) => { OnPointerClickDelegate((PointerEventData)data); });
+        trigger.triggers.Add(entry);
     }
 
-    public void SpawnAtPosition(PointerEventData data){
-        Debug.Log("spawn " + data);
+    public void OnPointerClickDelegate(PointerEventData data) {
+        Debug.Log("spawn" + data);
     }
 }
