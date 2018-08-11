@@ -16,8 +16,6 @@ public class Spawner : MonoBehaviour {
     }
 
     public void OnPointerClickDelegate(PointerEventData data) {
-        Debug.Log("spawn " + data.pointerPressRaycast.worldPosition);
-
         GameObject spawnedObj = (GameObject) Object.Instantiate(objectToSpawn, data.pointerPressRaycast.worldPosition, Quaternion.identity);
         spawnedObj.SetActive(true);
     }
