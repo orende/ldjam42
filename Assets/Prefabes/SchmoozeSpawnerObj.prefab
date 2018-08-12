@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4372148147300508}
   - component: {fileID: 33203824905162078}
   - component: {fileID: 23603072055437520}
-  - component: {fileID: 135770937633680818}
+  - component: {fileID: 136658547433465762}
   m_Layer: 0
   m_Name: Schmooze
   m_TagString: Untagged
@@ -38,7 +38,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4557635285210408}
   - component: {fileID: 114512431857005730}
-  - component: {fileID: 135047265255261052}
+  - component: {fileID: 136648664041182304}
   m_Layer: 0
   m_Name: SchmoozeSpawnerObj
   m_TagString: Spawner
@@ -88,7 +88,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9fac7891e70decf42834e14e0ea34d1c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -128,8 +128,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnInterval: 1
   objectToSpawn: {fileID: 0}
---- !u!135 &135047265255261052
-SphereCollider:
+--- !u!136 &136648664041182304
+CapsuleCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -137,11 +137,12 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1.5
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!135 &135770937633680818
-SphereCollider:
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!136 &136658547433465762
+CapsuleCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -149,6 +150,7 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
   m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.5, z: 0}
