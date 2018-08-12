@@ -17,6 +17,7 @@ public class PlayerController_01 : MonoBehaviour
     private float actionTimer;
     public float actionDelay;
     public Text itemText;
+    public Text wallText;
     private bool disableAction = false;
 
     void OnTriggerEnter(Collider other)
@@ -57,6 +58,7 @@ public class PlayerController_01 : MonoBehaviour
             Debug.Log("BUILDING A WALL");
             //Instantiate(wall, transform.position + transform.forward * 2, transform.rotation);
             wallResources--;
+            wallText.text = "" + wallResources + " Walls";
             disableAction = true;
             actionTimer = actionDelay;
         }

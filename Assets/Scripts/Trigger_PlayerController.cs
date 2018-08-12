@@ -6,6 +6,7 @@ using UnityEngine;
 public class Trigger_PlayerController : MonoBehaviour {
 
     public Text itemText;
+    public Text wallText;
 
     void Start() {
         
@@ -35,6 +36,7 @@ public class Trigger_PlayerController : MonoBehaviour {
              if (this.GetComponentInParent<PlayerController_01>().equippedItem == 1)
             {
                 this.GetComponentInParent<PlayerController_01>().wallResources++;
+                wallText.text = "" + this.GetComponentInParent<PlayerController_01>().wallResources + " Walls";
                 Destroy(other.gameObject);
             }
         }

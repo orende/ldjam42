@@ -10068,6 +10068,16 @@ Prefab:
       propertyPath: itemText
       value: 
       objectReference: {fileID: 2109524203}
+    - target: {fileID: 114923991281910866, guid: f771c0433069e474980d458eeb7ae71e,
+        type: 2}
+      propertyPath: wallText
+      value: 
+      objectReference: {fileID: 801189684}
+    - target: {fileID: 114553010351258034, guid: f771c0433069e474980d458eeb7ae71e,
+        type: 2}
+      propertyPath: wallText
+      value: 
+      objectReference: {fileID: 801189684}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f771c0433069e474980d458eeb7ae71e, type: 2}
   m_IsPrefabAsset: 0
