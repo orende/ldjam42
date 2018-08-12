@@ -2,6 +2,8 @@
 [Tt]emp/
 [Bb]uild/
 [Bb]uilds/
+"ProBuilder Data/"
+
 Assets/AssetStoreTools*
 
 # Visual Studio cache directory
