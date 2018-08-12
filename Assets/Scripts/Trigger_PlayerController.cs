@@ -17,7 +17,11 @@ public class Trigger_PlayerController : MonoBehaviour {
 
         if (other.gameObject.CompareTag("Destructable"))
         {
-             if (this.GetComponentInParent<PlayerController_01>().equippedItem == 1) { Destroy(other.gameObject); }
+             if (this.GetComponentInParent<PlayerController_01>().equippedItem == 1)
+            {
+                this.GetComponentInParent<PlayerController_01>().wallResources++;
+                Destroy(other.gameObject);
+            }
         }
 
         if (other.gameObject.CompareTag("Equipment"))

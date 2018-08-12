@@ -12,6 +12,7 @@ public class PlayerController_01 : MonoBehaviour
     public GameObject mopItem;
     public GameObject axeItem;
     public GameObject hitBox;
+    public int wallResources;
 
     void OnTriggerEnter(Collider other)
     {
@@ -33,8 +34,8 @@ public class PlayerController_01 : MonoBehaviour
     void MopAction()
     {
         Debug.Log("USING MOP");
-
         hitBox.SetActive(true);
+
     }
 
     void AxeAction()
@@ -46,8 +47,16 @@ public class PlayerController_01 : MonoBehaviour
 
     void WallBuildAction()
     {
-        Debug.Log("BUILDING A WALL");
-        Instantiate(wall, new Vector3(transform.position.x, transform.position.y, transform.position.z) + new Vector3(0,0,2), transform.rotation);
+        if (wallResources > 0)
+        {
+            Debug.Log("BUILDING A WALL");
+            Instantiate(wall, transform.position + transform.forward * 2, transform.rotation);
+            wallResources--;
+        }
+        else
+        {
+            Debug.Log("NOT ENOUGH RESOURCES TO BUILD WALL");
+        }
     }
 
     void Update()
