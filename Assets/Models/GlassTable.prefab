@@ -54,6 +54,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4835117230802024}
   - component: {fileID: 65152042687548798}
+  - component: {fileID: 114361230685490262}
   m_Layer: 0
   m_Name: GlassTable
   m_TagString: Destructable
@@ -196,5 +197,27 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.1, y: 2, z: 0.61}
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Size: {x: 1.1, y: 0.3382964, z: 0.61}
+  m_Center: {x: 0, y: 0.1691482, z: 0}
+--- !u!114 &114361230685490262
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1574393134962242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb34b962c4c87064187db69fae78ef82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 2
+  onHealthDecreaseEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  deathEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null

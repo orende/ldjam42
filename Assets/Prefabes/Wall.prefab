@@ -234,7 +234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96c4af7da757d9544bfab6a57bcc124f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToCreate: {fileID: 1173668711483090, guid: 9de9f1aaf971d3d41b4831b784ded954,
+  objectToCreate: {fileID: 1173668711483090, guid: 5e230c58d29ec514fb693f73c602eb2b,
     type: 2}
 --- !u!114 &114777558597438808
 MonoBehaviour:
@@ -247,7 +247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb34b962c4c87064187db69fae78ef82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
+  health: 2
   onHealthDecreaseEvent:
     m_PersistentCalls:
       m_Calls:

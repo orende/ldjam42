@@ -53,9 +53,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4191931114418670}
+  - component: {fileID: 114522039207403370}
+  - component: {fileID: 65647721647541952}
   m_Layer: 0
   m_Name: Sofa
-  m_TagString: Untagged
+  m_TagString: Destructable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -185,3 +187,37 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1687506568257166}
   m_Mesh: {fileID: 4300002, guid: 4abb9f2ced9992645b672f7bdca0f8c2, type: 3}
+--- !u!65 &65647721647541952
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1947837800388808}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.0736957, y: 1.6233611, z: 1.961128}
+  m_Center: {x: -0.0064308248, y: 0.8003849, z: -0.099739455}
+--- !u!114 &114522039207403370
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1947837800388808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb34b962c4c87064187db69fae78ef82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 2
+  onHealthDecreaseEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  deathEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null

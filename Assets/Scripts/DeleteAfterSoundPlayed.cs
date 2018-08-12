@@ -7,7 +7,7 @@ public class DeleteAfterSoundPlayed : MonoBehaviour {
     //
     // Use this for initialization
     void Start () {
-        this.gameObject.GetComponent<AudioSource>();
+        audioSource = this.gameObject.GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame

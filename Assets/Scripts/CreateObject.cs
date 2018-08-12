@@ -18,6 +18,6 @@ public class CreateObject : MonoBehaviour {
 
     public void Create()
     {
-        GameObject.Instantiate(objectToCreate);
+        GameObject.Instantiate(objectToCreate,this.gameObject.transform.position,new Quaternion(0,0,0,0));
     }
 }

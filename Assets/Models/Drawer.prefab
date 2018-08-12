@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4311277856875260}
   - component: {fileID: 65502262012475656}
+  - component: {fileID: 114890834560153450}
   m_Layer: 0
   m_Name: Drawer
   m_TagString: Destructable
@@ -269,5 +270,27 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.1, y: 2, z: 2.14}
-  m_Center: {x: -0.04, y: 1, z: 0}
+  m_Size: {x: 1.1, y: 1.0171633, z: 2.14}
+  m_Center: {x: -0.04000002, y: 0.50858164, z: 0}
+--- !u!114 &114890834560153450
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1020906506152488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb34b962c4c87064187db69fae78ef82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 2
+  onHealthDecreaseEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  deathEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null

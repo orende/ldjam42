@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4299875255200006}
   - component: {fileID: 65495405828561498}
+  - component: {fileID: 114363069873663014}
   m_Layer: 0
   m_Name: BathroomSink
   m_TagString: Destructable
@@ -269,5 +270,27 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.8096033, y: 2, z: 0.68267155}
-  m_Center: {x: 0.001670152, y: 1, z: 0.15866423}
+  m_Size: {x: 0.8096033, y: 1.0524311, z: 0.68267155}
+  m_Center: {x: 0.001670152, y: 0.52621555, z: 0.15866423}
+--- !u!114 &114363069873663014
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1353974479134466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb34b962c4c87064187db69fae78ef82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 2
+  onHealthDecreaseEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  deathEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
