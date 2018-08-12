@@ -39,13 +39,14 @@ GameObject:
   - component: {fileID: 4557635285210408}
   - component: {fileID: 114512431857005730}
   - component: {fileID: 136648664041182304}
+  - component: {fileID: 114081243356987848}
   m_Layer: 0
   m_Name: SchmoozeSpawnerObj
   m_TagString: Spawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4372148147300508
 Transform:
   m_ObjectHideFlags: 1
@@ -115,6 +116,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1071230333153852}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &114081243356987848
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1565178943453786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e46101fbb51b74a3aa6138efe4356da6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114512431857005730
 MonoBehaviour:
   m_ObjectHideFlags: 1
