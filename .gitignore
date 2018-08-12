@@ -3,6 +3,7 @@
 [Bb]uild/
 [Bb]uilds/
 "ProBuilder Data/"
+Debug/
 
 Assets/AssetStoreTools*
 

@@ -7,8 +7,8 @@ public class GenerateSchmooze : MonoBehaviour {
 	public float spawnInterval = 5.0f;
 	public GameObject objectToSpawn;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		StartCoroutine(SpawnNewSchmooze());
 	}
 	
@@ -27,8 +27,8 @@ public class GenerateSchmooze : MonoBehaviour {
 				// Debug.Log("Spawnpos " + spawnPos);
 				GameObject newSchmooze = Object.Instantiate(objectToSpawn, spawnPos, Quaternion.identity);
 				newSchmooze.SetActive(true);
-			}
-		}
+            }
+        }
 	}
 
 	private Vector3 findNextSpawnPosition() {

@@ -9,9 +9,29 @@ public class GameController_Script : MonoBehaviour {
     public int winCount;
     public Text text;
 
-	// Use this for initialization
-	void Start () {
-        gameTimer = 60;
+    void GameFinished() {
+
+        if (getSchmoozeLevel() >= winCount) { text.text = "THE SCHMOOZE WINS"; }
+        else { text.text = "THE MAD SCIENTIST WINS"; }
+    }
+
+    private int getSchmoozeLevel()
+    {
+        int result = 0;
+        GameObject[] arr = GameObject.FindGameObjectsWithTag("Schmooze");
+        foreach (GameObject obj in arr)
+        {
+            if (obj.activeSelf)
+            {
+                result++;
+            }
+        }
+        return result;
+    }
+
+    // Use this for initialization
+    void Start () {
+        if (gameTimer <= 0) { gameTimer = 60; }
 	}
 	
 	// Update is called once per frame
@@ -24,7 +44,7 @@ public class GameController_Script : MonoBehaviour {
 
         if (gameTimer <= 0)
         {
-            
+            GameFinished();
         }
 
     }
