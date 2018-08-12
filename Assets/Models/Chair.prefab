@@ -19,9 +19,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4111757785650828}
+  - component: {fileID: 65565446754913412}
   m_Layer: 0
   m_Name: Chair
-  m_TagString: Untagged
+  m_TagString: Destructable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -185,3 +186,15 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1995037708400002}
   m_Mesh: {fileID: 4300000, guid: bea4f00ddb637a14dafd0cc87ecfd04c, type: 3}
+--- !u!65 &65565446754913412
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1334138321120512}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0559863, y: 1.9999996, z: 0.9999998}
+  m_Center: {x: -0.043262016, y: 0.9999998, z: 0}

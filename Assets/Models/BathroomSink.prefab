@@ -19,9 +19,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4299875255200006}
+  - component: {fileID: 65495405828561498}
   m_Layer: 0
   m_Name: BathroomSink
-  m_TagString: Untagged
+  m_TagString: Destructable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -258,3 +259,15 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1561917730982670}
   m_Mesh: {fileID: 4300004, guid: 7027b851ce92fe04cb41f28862b442e6, type: 3}
+--- !u!65 &65495405828561498
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1353974479134466}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.8096033, y: 2, z: 0.68267155}
+  m_Center: {x: 0.001670152, y: 1, z: 0.15866423}

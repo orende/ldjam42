@@ -53,9 +53,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4835117230802024}
+  - component: {fileID: 65152042687548798}
   m_Layer: 0
   m_Name: GlassTable
-  m_TagString: Untagged
+  m_TagString: Destructable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -185,3 +186,15 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1198509942891762}
   m_Mesh: {fileID: 4300000, guid: d7be579e38efa0849b08ef6b800d3726, type: 3}
+--- !u!65 &65152042687548798
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1574393134962242}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.1, y: 2, z: 0.61}
+  m_Center: {x: 0, y: 1, z: 0}
