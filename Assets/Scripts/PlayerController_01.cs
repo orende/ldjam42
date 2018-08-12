@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 [RequireComponent(typeof(CharacterController))]
@@ -15,6 +16,8 @@ public class PlayerController_01 : MonoBehaviour
     public int wallResources;
     private float actionTimer;
     public float actionDelay;
+    public Text itemText;
+    public Text wallText;
     private bool disableAction = false;
 
     void OnTriggerEnter(Collider other)
@@ -55,6 +58,7 @@ public class PlayerController_01 : MonoBehaviour
             Debug.Log("BUILDING A WALL");
             //Instantiate(wall, transform.position + transform.forward * 2, transform.rotation);
             wallResources--;
+            wallText.text = "" + wallResources + " Walls";
             disableAction = true;
             actionTimer = actionDelay;
         }
@@ -109,17 +113,20 @@ public class PlayerController_01 : MonoBehaviour
                 {
                     Instantiate(mopItem, transform.position, transform.rotation);
                     equippedItem = 0;
+                    itemText.text = "No item";
                 }
                 else if (equippedItem == 1)
                 {
                     Instantiate(axeItem, transform.position, transform.rotation);
                     equippedItem = 0;
+                    itemText.text = "No item";
                 }
 
                 else if (equippedItem == 3)
                 {
                     Instantiate(wallItem, transform.position, transform.rotation);
                     equippedItem = 0;
+                    itemText.text = "No item";
                 }
 
                 else

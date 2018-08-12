@@ -7,12 +7,12 @@ public class GameController_Script : MonoBehaviour {
 
     public float gameTimer;
     public int winCount;
-    public Text text;
+    public Text gameTimerText;
 
     void GameFinished() {
 
-        if (getSchmoozeLevel() >= winCount) { text.text = "THE SCHMOOZE WINS"; }
-        else { text.text = "THE MAD SCIENTIST WINS"; }
+        if (getSchmoozeLevel() >= winCount) { gameTimerText.text = "THE SCHMOOZE WINS"; }
+        else { gameTimerText.text = "THE MAD SCIENTIST WINS"; }
     }
 
     private int getSchmoozeLevel()
@@ -41,6 +41,7 @@ public class GameController_Script : MonoBehaviour {
         if (Input.GetKey(KeyCode.Space)) { Application.LoadLevel(1); }
 
         gameTimer -= 1 * Time.deltaTime;
+        gameTimerText.text = "Time: " + gameTimer;
 
         if (gameTimer <= 0)
         {
