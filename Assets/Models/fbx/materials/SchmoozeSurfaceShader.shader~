@@ -1,0 +1,116 @@
+﻿Shader "Custom/SchmoozeSurfaceShader" {
+	Properties {
+		_MainTex ("Albedo (RGB)", 2D) = "white" {}
+		_Color ("Color", Color) = (1,1,1,1)
+		_Glossiness ("Smoothness", Range(0,1)) = 0.5
+		_Metallic ("Metallic", Range(0,1)) = 0.0
+
+		permutation ("permutation table" , 2D) = "white" {} 
+	}
+	SubShader {
+		Tags { "RenderType"="Opaque" }
+		LOD 200
+
+		CGPROGRAM
+		// Physically based Standard lighting model, and enable shadows on all light types
+		#pragma surface surf Standard fullforwardshadows
+		#pragma vertex vert
+
+		// Use shader model 3.0 target, to get nicer looking lighting
+		#pragma target 3.0
+
+		uniform sampler2D permutation;
+
+		float perm(float d) {
+			d = floor(d);	
+			float2 t = float2(fmod(d, 16.0),floor(d/16.0))/15.0;
+			return floor(tex2D(permutation,t).r *255);
+		}
+
+		float fade(float t) {
+			return t*t*t*(t*(t*6.0-15.0)+10.0);
+		}
+
+		float lerp(float t,float a,float b) {
+			return a+t*(b-a);
+		}
+
+		float grad2(int hash,float x,float y) {
+			float h = fmod((float)hash, 16.0);
+			float u = h<8.0 ? x : y;
+			float v = h<4.0 ? y : x;
+			float a = fmod(h, 2.0) == 0 ? u : -u; h /=2.0;
+			float b = fmod(h, 2.0) == 0 ? v : -v;
+			return a+b;
+		}
+
+		float noise(float2 n) {		
+			float X = fmod(n.x, 256);
+			float Y = fmod(n.y, 256);
+
+			float x = frac(n.x);
+			float y = frac(n.y);
+
+			float u = fade(x);
+			float v = fade(y);
+
+			float A	= perm(X  	)+Y;
+			float B	= perm(X+1	)+Y;
+
+			float AA	= perm(A	);
+			float AB	= perm(A+1	); 	
+			float BA	= perm(B	);
+			float BB	= perm(B+1	);
+
+			return lerp(v, lerp(u, grad2(perm(AA  ), x  , y  ),
+						grad2(perm(BA  ), x-1, y  )),
+					lerp(u, grad2(perm(AB  ), x  , y-1),
+						grad2(perm(BB  ), x-1, y-1)));
+		}
+
+
+		sampler2D _MainTex;
+		half _Glossiness;
+		half _Metallic;
+		fixed4 _Color;
+
+		// Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
+		// See https://docs.unity3d.com/Manual/GPUInstancing.html for more information about instancing.
+		// #pragma instancing_options assumeuniformscaling
+		UNITY_INSTANCING_BUFFER_START(Props)
+			// put more per-instance properties here
+		UNITY_INSTANCING_BUFFER_END(Props)
+
+		struct v2f {
+			float4 pos : SV_POSITION;
+			fixed3 color : COLOR0;
+		};
+
+
+		v2f vert (inout appdata_full v)
+		{
+			v2f o;
+			o.pos = UnityObjectToClipPos(v.vertex);
+			o.color = v.normal * 0.5 + 0.5;
+			return o;
+		}
+
+
+		struct Input {
+			float2 uv_MainTex;
+		};
+
+		void surf (Input IN, inout SurfaceOutputStandard o) {
+			// Albedo comes from a texture tinted by color
+			fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
+			float n = noise(IN.uv_MainTex);
+			o.Albedo = float4(n, n, n, 1.0);
+			// Metallic and smoothness come from slider variables
+			o.Metallic = _Metallic;
+			o.Smoothness = _Glossiness;
+			o.Alpha = c.a;
+		}
+		ENDCG
+	}
+	FallBack "Diffuse"
+}
