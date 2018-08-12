@@ -10,7 +10,7 @@ public class Trigger_PlayerController : MonoBehaviour {
 
         if (other.gameObject.CompareTag("Player")) {}
 
-        if (other.gameObject.CompareTag("Schmooze"))
+        if (other.gameObject.CompareTag("Schmooze") || other.gameObject.CompareTag("Spawner"))
         {
             if (this.GetComponentInParent<PlayerController_01>().equippedItem == 2) { Destroy(other.gameObject); }
         }
