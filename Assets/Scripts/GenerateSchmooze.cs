@@ -7,12 +7,12 @@ public class GenerateSchmooze : MonoBehaviour {
 	public float spawnInterval = 5.0f;
 	public GameObject objectToSpawn;
 
-    // Use this for initialization
+	private bool isBlockingSpawner = false;
+
     void Start () {
 		StartCoroutine(SpawnNewSchmooze());
 	}
 	
-	// Update is called once per frame
 	void Update () {
 		
 	}
@@ -53,6 +53,14 @@ public class GenerateSchmooze : MonoBehaviour {
 
 		transform.Rotate(Vector3.up);
 		return foundPos;
+	}
+
+	public void convertToBlockingSpawner() {
+		if (!isBlockingSpawner) {
+			isBlockingSpawner = true;
+			Debug.Log("Converted to blocking schmooze spawner");
+			//TODO add blocking functionality here
+		}
 	}
 
 	// void FixedUpdate() {

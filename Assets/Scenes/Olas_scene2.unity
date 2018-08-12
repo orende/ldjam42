@@ -642,18 +642,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1565178943453786, guid: 9ae24eccbd1024695bb1136763314c44,
     type: 2}
   m_PrefabInternal: {fileID: 1430305854}
---- !u!135 &546328042
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 546328039}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &865091569
 GameObject:
   m_ObjectHideFlags: 0
@@ -878,6 +866,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   rotateSpeed: 3
+  equippedItem: 0
+  wall: {fileID: 0}
+  wallItem: {fileID: 0}
+  mopItem: {fileID: 0}
+  axeItem: {fileID: 0}
+  hitBox: {fileID: 0}
 --- !u!43 &1040341210
 Mesh:
   m_ObjectHideFlags: 0
@@ -2051,10 +2045,6 @@ Prefab:
       propertyPath: objectToSpawn
       value: 
       objectReference: {fileID: 502649100}
-    - target: {fileID: 1565178943453786, guid: 9ae24eccbd1024695bb1136763314c44, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ae24eccbd1024695bb1136763314c44, type: 2}
   m_IsPrefabAsset: 0
