@@ -6,6 +6,7 @@ public class GenerateSchmooze : MonoBehaviour {
 
 	public float spawnInterval = 5.0f;
 	public GameObject objectToSpawn;
+	private bool isBlockingSpawner = false;
 
     // Use this for initialization
     void Start () {
@@ -53,6 +54,13 @@ public class GenerateSchmooze : MonoBehaviour {
 
 		transform.Rotate(Vector3.up);
 		return foundPos;
+	}
+
+	public void convertToBlockingSpawner() {
+		if (!isBlockingSpawner) {
+			isBlockingSpawner = true;
+			Debug.Log("Converted to blocking schmooze spawner");
+		}
 	}
 
 	// void FixedUpdate() {
