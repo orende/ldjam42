@@ -4,7 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
+<<<<<<< HEAD
+  - Destructable
+  - Equipment
+=======
   - Spawner
+>>>>>>> c88d499b2b64f18e31dc5f1655a9e9761ae2c36f
   layers:
   - Default
   - TransparentFX
