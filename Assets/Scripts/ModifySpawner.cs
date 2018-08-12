@@ -16,7 +16,7 @@ public class ModifySpawner : MonoBehaviour {
 
 	void OnMouseOver() {
 		if (Input.GetMouseButtonDown(0)) {
-			gs.convertToBlockingSpawner();
+			gs.changeSpawnerType();
 		}
 	}
 }
