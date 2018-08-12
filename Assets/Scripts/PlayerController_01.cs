@@ -24,7 +24,9 @@ public class PlayerController_01 : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Schmooze"))
         {
-            speed -= 1;
+            if (speed - 1 >= 1) {
+                speed -= 1;
+            }
         }
     }
 
@@ -32,7 +34,9 @@ public class PlayerController_01 : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Schmooze"))
         {
-            speed += 1;
+            if (speed + 1 <= 3) {
+                speed += 1;
+            }
         }
     }
 
