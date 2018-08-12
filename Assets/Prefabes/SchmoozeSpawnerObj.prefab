@@ -127,7 +127,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnInterval: 1
-  objectToSpawn: {fileID: 0}
+  objectToSpawn: {fileID: 1128336425672996, guid: 6892fd97dd2a84614b77709d130dde2c,
+    type: 2}
 --- !u!136 &136648664041182304
 CapsuleCollider:
   m_ObjectHideFlags: 1

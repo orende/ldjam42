@@ -543,9 +543,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73a1164296597194e9dc79c2aab4159d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnerPrefab: {fileID: 0}
-  nonSpawnerPrefab: {fileID: 0}
-  spawnRadius: 15
+  spawnerPrefab: {fileID: 1565178943453786, guid: 9ae24eccbd1024695bb1136763314c44,
+    type: 2}
+  nonSpawnerPrefab: {fileID: 1128336425672996, guid: 6892fd97dd2a84614b77709d130dde2c,
+    type: 2}
+  spawnRadius: 36.73
 --- !u!114 &126782621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -897,7 +899,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh12932
+  m_Name: pb_Mesh14350
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -2948,7 +2950,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh12750
+  m_Name: pb_Mesh14160
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -3817,7 +3819,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh12908
+  m_Name: pb_Mesh14326
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -3972,7 +3974,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh12920
+  m_Name: pb_Mesh14338
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -7554,6 +7556,10 @@ Prefab:
       propertyPath: CollisionModule.plane0
       value: 
       objectReference: {fileID: 751537756}
+    - target: {fileID: 1717745102315696, guid: 2170bdf850ef639418fda4e79022f355, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2170bdf850ef639418fda4e79022f355, type: 2}
   m_IsPrefabAsset: 0
