@@ -15,9 +15,17 @@ public class PlayerController_01 : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Equipment"))
+        if (other.gameObject.CompareTag("Schmooze"))
         {
+            speed -= 1;
+        }
+    }
 
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Schmooze"))
+        {
+            speed += 1;
         }
     }
 
@@ -52,6 +60,7 @@ public class PlayerController_01 : MonoBehaviour
         Vector3 movment = new Vector3(hSpeed, 0, vSpeed);
         controller.SimpleMove(movment);
 
+        transform.rotation = Quaternion.LookRotation(movment);
 
         if (Input.GetButtonDown("Fire1"))
         {
