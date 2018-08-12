@@ -28,7 +28,9 @@ public class Trigger_PlayerController : MonoBehaviour {
 
         if (other.gameObject.CompareTag("Schmooze") || other.gameObject.CompareTag("Spawner"))
         {
-            if (this.GetComponentInParent<PlayerController_01>().equippedItem == 2) { Destroy(other.gameObject); }
+            if (this.GetComponentInParent<PlayerController_01>().equippedItem == 2) {
+                other.gameObject.GetComponent<Health>().DecreaseHP();
+            }
         }
 
         if (other.gameObject.CompareTag("Destructable"))
@@ -37,7 +39,7 @@ public class Trigger_PlayerController : MonoBehaviour {
             {
                 this.GetComponentInParent<PlayerController_01>().wallResources++;
                 wallText.text = "" + this.GetComponentInParent<PlayerController_01>().wallResources + " Walls";
-                Destroy(other.gameObject);
+                other.gameObject.GetComponent<Health>().DecreaseHP();
             }
         }
 

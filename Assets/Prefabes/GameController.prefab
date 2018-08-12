@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4844717538759162}
   - component: {fileID: 114440665290921916}
+  - component: {fileID: 114948900943765624}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -34,7 +35,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1657392698935114}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.13632226, y: 3.1667614, z: -0.602674}
+  m_LocalPosition: {x: 4.650614, y: 18.938555, z: -2.239913}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -52,6 +53,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameTimer: 0
-  winCount: 0
-  text: {fileID: 0}
-  schmoozeCount: 0
+  winCount: 30
+  gameTimerText: {fileID: 0}
+--- !u!114 &114948900943765624
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1657392698935114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 081747c445720405bb619b9abb48af55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meter: {fileID: 0}
+  increaseInterval: 2
+  spawnerCost: 0.2
+  nonSpawnerCost: 0.1
