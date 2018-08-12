@@ -12,12 +12,21 @@ public class PlayerController_01 : MonoBehaviour
     public GameObject mopItem;
     public GameObject axeItem;
     public GameObject hitBox;
+    public int wallResources;
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Equipment"))
+        if (other.gameObject.CompareTag("Schmooze"))
         {
+            speed -= 1;
+        }
+    }
 
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Schmooze"))
+        {
+            speed += 1;
         }
     }
 
@@ -25,8 +34,8 @@ public class PlayerController_01 : MonoBehaviour
     void MopAction()
     {
         Debug.Log("USING MOP");
-
         hitBox.SetActive(true);
+
     }
 
     void AxeAction()
@@ -38,8 +47,16 @@ public class PlayerController_01 : MonoBehaviour
 
     void WallBuildAction()
     {
-        Debug.Log("BUILDING A WALL");
-        Instantiate(wall, new Vector3(transform.position.x, transform.position.y, transform.position.z) + new Vector3(0,0,2), transform.rotation);
+        if (wallResources > 0)
+        {
+            Debug.Log("BUILDING A WALL");
+            Instantiate(wall, transform.position + transform.forward * 2, transform.rotation);
+            wallResources--;
+        }
+        else
+        {
+            Debug.Log("NOT ENOUGH RESOURCES TO BUILD WALL");
+        }
     }
 
     void Update()
@@ -52,6 +69,7 @@ public class PlayerController_01 : MonoBehaviour
         Vector3 movment = new Vector3(hSpeed, 0, vSpeed);
         controller.SimpleMove(movment);
 
+        transform.rotation = Quaternion.LookRotation(movment);
 
         if (Input.GetButtonDown("Fire1"))
         {
