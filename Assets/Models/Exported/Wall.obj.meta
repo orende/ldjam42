@@ -5,13 +5,23 @@ ModelImporter:
   fileIDToRecycleName:
     100000: Wall
     100002: //RootNode
+    100004: Cube
     400000: Wall
     400002: //RootNode
+    400004: Cube
     2100000: Default_Prototype
     2300000: Wall
+    2300002: Cube
     3300000: Wall
+    3300002: Cube
     4300000: Wall
-  externalObjects: {}
+    4300002: Cube
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Default_Prototype
+    second: {fileID: 2100000, guid: 1f70582aba7efc64d86d67dedc1104fa, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
