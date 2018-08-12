@@ -4,35 +4,35 @@ using UnityEngine;
 
 public class Trigger_PlayerController : MonoBehaviour {
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerStay(Collider other)
     {
         Debug.Log(other);
-        
-        switch (this.GetComponentInParent<PlayerController_01>().equippedItem)
+
+        if (other.gameObject.CompareTag("Player")) {}
+
+        if (other.gameObject.CompareTag("Schmooze"))
         {
-            case 0:
-                Debug.Log("CASE 0");
+            if (this.GetComponentInParent<PlayerController_01>().equippedItem == 2) { Destroy(other.gameObject); }
+        }
+
+        if (other.gameObject.CompareTag("Destructable"))
+        {
+             if (this.GetComponentInParent<PlayerController_01>().equippedItem == 1) { Destroy(other.gameObject); }
+        }
+
+        if (other.gameObject.CompareTag("Equipment"))
+        {
+            if (this.GetComponentInParent<PlayerController_01>().equippedItem == 0){ 
                 if (other.gameObject.name == "Axe" || other.gameObject.name == "Axe(Clone)") { this.GetComponentInParent<PlayerController_01>().equippedItem = 1; Destroy(other.gameObject); }
                 else if (other.gameObject.name == "Mop" || other.gameObject.name == "Mop(Clone)") { this.GetComponentInParent<PlayerController_01>().equippedItem = 2; Destroy(other.gameObject); }
                 else if (other.gameObject.name == "WallBuilder" || other.gameObject.name == "WallBuilder(Clone)") { this.GetComponentInParent<PlayerController_01>().equippedItem = 3; Destroy(other.gameObject); }
-                this.gameObject.SetActive(false);
-                break;
-            case 1:
-                Debug.Log("CASE 1");
-                if (other.gameObject.CompareTag("Destructable")) { Destroy(other.gameObject); }
-                this.gameObject.SetActive(false);
-                break;
-            case 2:
-                Debug.Log("CASE 2");
-                if (other.gameObject.CompareTag("Schmooze")) { Destroy(other.gameObject); }
-                this.gameObject.SetActive(false);
-                break;
-
-            default:
-                Debug.Log("DEFAULT HAPPENING");
-                this.gameObject.SetActive(false);
-                break;
+            }
         }
+
+        else { Debug.Log("No object for collider"); }
+
+        this.gameObject.SetActive(false);
+
     }
 
     // Use this for initialization
@@ -44,4 +44,8 @@ public class Trigger_PlayerController : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    void FixedUpdate()
+    {
+    }
 }

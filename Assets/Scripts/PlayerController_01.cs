@@ -12,7 +12,6 @@ public class PlayerController_01 : MonoBehaviour
     public GameObject mopItem;
     public GameObject axeItem;
     public GameObject hitBox;
-    private float frameTimer = 1;
 
     void OnTriggerEnter(Collider other)
     {
@@ -25,11 +24,15 @@ public class PlayerController_01 : MonoBehaviour
     // THese are the events that will occur  when the player uses an item
     void MopAction()
     {
+        Debug.Log("USING MOP");
+
         hitBox.SetActive(true);
     }
 
     void AxeAction()
     {
+        Debug.Log("USING AXE");
+
         hitBox.SetActive(true);
     }
 
@@ -41,6 +44,7 @@ public class PlayerController_01 : MonoBehaviour
 
     void Update()
     {
+
         CharacterController controller = GetComponent<CharacterController>();
 
         float hSpeed =  speed * Input.GetAxis("Horizontal");
@@ -48,7 +52,8 @@ public class PlayerController_01 : MonoBehaviour
         Vector3 movment = new Vector3(hSpeed, 0, vSpeed);
         controller.SimpleMove(movment);
 
-        if (Input.GetButton("Fire1"))
+
+        if (Input.GetButtonDown("Fire1"))
         {
                 if (equippedItem == 1) { AxeAction(); }
                 else if (equippedItem == 2) { MopAction(); }
@@ -57,31 +62,31 @@ public class PlayerController_01 : MonoBehaviour
                 else { Debug.Log("ERROR NO SUCH ITEM NAME WAS FOUND IN REGISTRY"); }
         }
 
-        if (Input.GetButton("Fire2"))
-        {
-            if (equippedItem == 2)
+            if (Input.GetButtonDown("Fire2"))
             {
-                Instantiate(mopItem, transform.position, transform.rotation);
-                equippedItem = 0;
-            }
-            else if (equippedItem == 1)
-            {
-                Instantiate(axeItem, transform.position, transform.rotation);
-                equippedItem = 0;
-            }
+                if (equippedItem == 2)
+                {
+                    Instantiate(mopItem, transform.position, transform.rotation);
+                    equippedItem = 0;
+                }
+                else if (equippedItem == 1)
+                {
+                    Instantiate(axeItem, transform.position, transform.rotation);
+                    equippedItem = 0;
+                }
 
-            else if (equippedItem == 3)
-            {
-                Instantiate(wallItem, transform.position, transform.rotation);
-                equippedItem = 0;
+                else if (equippedItem == 3)
+                {
+                    Instantiate(wallItem, transform.position, transform.rotation);
+                    equippedItem = 0;
+                }
+
+                else
+                {
+                    hitBox.SetActive(true);
+                }
+
             }
-
-            else
-            {
-                hitBox.SetActive(true);
-            }
-
-        }
-
     }
+
 }
