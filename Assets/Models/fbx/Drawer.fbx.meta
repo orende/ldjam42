@@ -1,14 +1,14 @@
 fileFormatVersion: 2
-guid: b9efab4a186725848920ce85840c3d19
+guid: a0c2d1fd6c3b5a9408791ac5a0d29bbf
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: Drawer
-    100002: //RootNode
+    100000: //RootNode
+    100002: Drawer
     100004: DrawerBase
     100006: Knobs
-    400000: Drawer
-    400002: //RootNode
+    400000: //RootNode
+    400002: Drawer
     400004: DrawerBase
     400006: Knobs
     2100000: Knob
