@@ -7,7 +7,8 @@ public class GenerateSchmooze : MonoBehaviour {
 	public float spawnInterval = 5.0f;
 	public GameObject objectToSpawn;
 
-	private bool isBlockingSpawner = false;
+	private int spawnerType = 0; // 0 = normal spawner, 1 = blocking spawner
+	private List<GameObject> spawns = new List<GameObject>();
 
     void Start () {
 		StartCoroutine(SpawnNewSchmooze());
@@ -19,13 +20,17 @@ public class GenerateSchmooze : MonoBehaviour {
 
 	IEnumerator SpawnNewSchmooze() {
 		while (this.transform.gameObject.activeSelf) {
-			yield return new WaitForSeconds(spawnInterval); //wait for spawnInterval before continuing
+			yield return new WaitForSeconds(spawnInterval); //wait for spawnInterval before running rest of method
 			
 			// Debug.Log("Spawning schmooze");
 			Vector3 spawnPos = findNextSpawnPosition();
 			if (!spawnPos.Equals(Vector3.negativeInfinity)) {
 				// Debug.Log("Spawnpos " + spawnPos);
 				GameObject newSchmooze = Object.Instantiate(objectToSpawn, spawnPos, Quaternion.identity);
+				if (spawnerType == 1) {
+					newSchmooze.GetComponentInChildren(typeof(BlockingSchmooze)).gameObject.GetComponent<BoxCollider>().enabled = true;
+				}
+				spawns.Add(newSchmooze);
 				newSchmooze.SetActive(true);
             }
         }
@@ -55,23 +60,17 @@ public class GenerateSchmooze : MonoBehaviour {
 		return foundPos;
 	}
 
-	public void convertToBlockingSpawner() {
-		if (!isBlockingSpawner) {
-			isBlockingSpawner = true;
+	public void changeSpawnerType() {
+		if (spawnerType == 0) {
+			spawnerType = 1;
 			Debug.Log("Converted to blocking schmooze spawner");
-			//TODO add blocking functionality here
+			convertSpawnedSchmoozeToBlockingType();
 		}
 	}
 
-	// void FixedUpdate() {
-	// 	transform.Rotate(Vector3.up * 35f * Time.deltaTime);
- //        Vector3 fwd = transform.forward;
-
- //        if (Physics.Raycast(transform.position, fwd, 3)){
- //        	Debug.DrawRay(transform.position, fwd * 3, Color.red);
- //            print("There is something in front of the object!");
- //        } else {
- //        	Debug.DrawRay(transform.position, fwd * 3, Color.red);
- //        }
- //    }
+	private void convertSpawnedSchmoozeToBlockingType() {
+		foreach (GameObject comp in spawns) {
+			comp.GetComponentInChildren(typeof(BlockingSchmooze)).gameObject.GetComponent<BoxCollider>().enabled = true;
+		}
+	}
 }
