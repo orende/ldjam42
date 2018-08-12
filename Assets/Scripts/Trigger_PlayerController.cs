@@ -1,8 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class Trigger_PlayerController : MonoBehaviour {
+
+    public Text itemText;
+
+    void Start() {
+        
+    }
+
+    void Update () {
+        
+    }
+
+    void FixedUpdate()
+    {
+    }
 
     void OnTriggerStay(Collider other)
     {
@@ -27,9 +42,19 @@ public class Trigger_PlayerController : MonoBehaviour {
         if (other.gameObject.CompareTag("Equipment"))
         {
             if (this.GetComponentInParent<PlayerController_01>().equippedItem == 0){ 
-                if (other.gameObject.name == "Axe" || other.gameObject.name == "Axe(Clone)") { this.GetComponentInParent<PlayerController_01>().equippedItem = 1; Destroy(other.gameObject); }
-                else if (other.gameObject.name == "Mop" || other.gameObject.name == "Mop(Clone)") { this.GetComponentInParent<PlayerController_01>().equippedItem = 2; Destroy(other.gameObject); }
-                else if (other.gameObject.name == "WallBuilder" || other.gameObject.name == "WallBuilder(Clone)") { this.GetComponentInParent<PlayerController_01>().equippedItem = 3; Destroy(other.gameObject); }
+                if (other.gameObject.name == "Axe" || other.gameObject.name == "Axe(Clone)") { 
+                    this.GetComponentInParent<PlayerController_01>().equippedItem = 1; 
+                    itemText.text = "Axe";
+                    Destroy(other.gameObject); 
+                } else if (other.gameObject.name == "Mop" || other.gameObject.name == "Mop(Clone)") { 
+                    this.GetComponentInParent<PlayerController_01>().equippedItem = 2; 
+                    itemText.text = "Mop";
+                    Destroy(other.gameObject); 
+                } else if (other.gameObject.name == "WallBuilder" || other.gameObject.name == "WallBuilder(Clone)") { 
+                    this.GetComponentInParent<PlayerController_01>().equippedItem = 3; 
+                    itemText.text = "WallBuilder";
+                    Destroy(other.gameObject); 
+                }
             }
         }
 
@@ -37,19 +62,5 @@ public class Trigger_PlayerController : MonoBehaviour {
 
         this.gameObject.SetActive(false);
 
-    }
-
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
-    void FixedUpdate()
-    {
     }
 }

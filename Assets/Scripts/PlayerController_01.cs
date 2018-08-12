@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 [RequireComponent(typeof(CharacterController))]
@@ -15,6 +16,7 @@ public class PlayerController_01 : MonoBehaviour
     public int wallResources;
     private float actionTimer;
     public float actionDelay;
+    public Text itemText;
     private bool disableAction = false;
 
     void OnTriggerEnter(Collider other)
@@ -109,17 +111,20 @@ public class PlayerController_01 : MonoBehaviour
                 {
                     Instantiate(mopItem, transform.position, transform.rotation);
                     equippedItem = 0;
+                    itemText.text = "No item";
                 }
                 else if (equippedItem == 1)
                 {
                     Instantiate(axeItem, transform.position, transform.rotation);
                     equippedItem = 0;
+                    itemText.text = "No item";
                 }
 
                 else if (equippedItem == 3)
                 {
                     Instantiate(wallItem, transform.position, transform.rotation);
                     equippedItem = 0;
+                    itemText.text = "No item";
                 }
 
                 else
