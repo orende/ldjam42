@@ -11,48 +11,26 @@ public class PlayerController_01 : MonoBehaviour
     public GameObject wallItem;
     public GameObject mopItem;
     public GameObject axeItem;
-
+    public GameObject hitBox;
+    private float frameTimer = 1;
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other);
-        
-        switch (equippedItem)
+        if (other.gameObject.CompareTag("Equipment"))
         {
-            case 1:
-                if (other.gameObject.CompareTag("Destructable")){ Destroy(other.gameObject); }
-                this.gameObject.GetComponent<BoxCollider>().enabled = false;
-                break;
-            case 2:
-                if (other.gameObject.CompareTag("Schmooze")) { Destroy(other.gameObject); }
-                this.gameObject.GetComponent<BoxCollider>().enabled = false;
-                break;
-            case 0:
-                if (other.gameObject.CompareTag("Equipment"))
-                {
-                    if (other.gameObject.name == "Axe" || other.gameObject.name == "Axe(Clone)") { equippedItem = 1; }
-                    else if (other.gameObject.name == "Mop" || other.gameObject.name == "Mop(Clone)") { equippedItem = 2; }
-                    else if (other.gameObject.name == "WallBuilder" || other.gameObject.name == "WallBuilder(Clone)") { equippedItem = 3; }
 
-                    Destroy(other.gameObject);
-                }
-                this.gameObject.GetComponent<BoxCollider>().enabled = false;
-                break;
-            default:
-                this.gameObject.GetComponent<BoxCollider>().enabled = false;
-                break;
         }
     }
 
     // THese are the events that will occur  when the player uses an item
     void MopAction()
     {
-        this.gameObject.GetComponent<BoxCollider>().enabled = true;
+        hitBox.SetActive(true);
     }
 
     void AxeAction()
     {
-        this.gameObject.GetComponent<BoxCollider>().enabled = true;
+        hitBox.SetActive(true);
     }
 
     void WallBuildAction()
@@ -64,15 +42,9 @@ public class PlayerController_01 : MonoBehaviour
     void Update()
     {
         CharacterController controller = GetComponent<CharacterController>();
-        /*
-        transform.Rotate(0, Input.GetAxis("Horizontal") * rotateSpeed, 0);
-        Vector3 forward = transform.TransformDirection(Vector3.forward);
-        float curSpeed = speed * Input.GetAxis("Vertical");
-        controller.SimpleMove(forward * curSpeed);
-        */
 
         float hSpeed =  speed * Input.GetAxis("Horizontal");
-       float vSpeed = speed * Input.GetAxis("Vertical");
+        float vSpeed = speed * Input.GetAxis("Vertical");
         Vector3 movment = new Vector3(hSpeed, 0, vSpeed);
         controller.SimpleMove(movment);
 
@@ -106,7 +78,7 @@ public class PlayerController_01 : MonoBehaviour
 
             else
             {
-                this.gameObject.GetComponent<BoxCollider>().gameObject.SetActive(true);
+                hitBox.SetActive(true);
             }
 
         }
