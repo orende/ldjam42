@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 [RequireComponent(typeof(CharacterController))]
@@ -13,6 +14,11 @@ public class PlayerController_01 : MonoBehaviour
     public GameObject axeItem;
     public GameObject hitBox;
     public int wallResources;
+    private float actionTimer;
+    public float actionDelay;
+    public Text itemText;
+    public Text wallText;
+    private bool disableAction = false;
 
     void OnTriggerEnter(Collider other)
     {
@@ -34,15 +40,15 @@ public class PlayerController_01 : MonoBehaviour
     void MopAction()
     {
         Debug.Log("USING MOP");
-        hitBox.SetActive(true);
-
+        disableAction = true;
+        actionTimer = actionDelay;
     }
 
     void AxeAction()
     {
         Debug.Log("USING AXE");
-
-        hitBox.SetActive(true);
+        disableAction = true;
+        actionTimer = actionDelay;
     }
 
     void WallBuildAction()
@@ -50,8 +56,11 @@ public class PlayerController_01 : MonoBehaviour
         if (wallResources > 0)
         {
             Debug.Log("BUILDING A WALL");
-            Instantiate(wall, transform.position + transform.forward * 2, transform.rotation);
+            //Instantiate(wall, transform.position + transform.forward * 2, transform.rotation);
             wallResources--;
+            wallText.text = "" + wallResources + " Walls";
+            disableAction = true;
+            actionTimer = actionDelay;
         }
         else
         {
@@ -61,6 +70,21 @@ public class PlayerController_01 : MonoBehaviour
 
     void Update()
     {
+        if (disableAction)
+        {
+            if (actionTimer > 0) { actionTimer -= 1 * Time.deltaTime; return; }
+            else
+            {
+                disableAction = false;
+                if (equippedItem == 1) { hitBox.SetActive(true); }
+                else if (equippedItem == 2) { hitBox.SetActive(true); }
+                else if (equippedItem == 3)
+                {
+                    Instantiate(wall, transform.position + transform.forward * 2, transform.rotation);
+                }
+            }
+        }
+        
 
         CharacterController controller = GetComponent<CharacterController>();
 
@@ -68,8 +92,11 @@ public class PlayerController_01 : MonoBehaviour
         float vSpeed = speed * Input.GetAxis("Vertical");
         Vector3 movment = new Vector3(hSpeed, 0, vSpeed);
         controller.SimpleMove(movment);
-
-        transform.rotation = Quaternion.LookRotation(movment);
+        if (Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") == 0){ }
+        else
+        {
+            transform.rotation = Quaternion.LookRotation(movment);
+        }
 
         if (Input.GetButtonDown("Fire1"))
         {
@@ -86,17 +113,20 @@ public class PlayerController_01 : MonoBehaviour
                 {
                     Instantiate(mopItem, transform.position, transform.rotation);
                     equippedItem = 0;
+                    itemText.text = "No item";
                 }
                 else if (equippedItem == 1)
                 {
                     Instantiate(axeItem, transform.position, transform.rotation);
                     equippedItem = 0;
+                    itemText.text = "No item";
                 }
 
                 else if (equippedItem == 3)
                 {
                     Instantiate(wallItem, transform.position, transform.rotation);
                     equippedItem = 0;
+                    itemText.text = "No item";
                 }
 
                 else

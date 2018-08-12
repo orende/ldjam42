@@ -1465,6 +1465,8 @@ MonoBehaviour:
   mopItem: {fileID: 1433728999768040, guid: e69bf01e0cddfd848a297104eaa3b8ec, type: 2}
   axeItem: {fileID: 1433728999768040, guid: bdda68032747dd04d9bdac7018ee3af3, type: 2}
   hitBox: {fileID: 1109027889879314}
+  wallResources: 1
+  actionDelay: 1
 --- !u!135 &135013537438465938
 SphereCollider:
   m_ObjectHideFlags: 1
