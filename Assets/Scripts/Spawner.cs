@@ -35,7 +35,7 @@ public class Spawner : MonoBehaviour {
     	GameObject[] spawners = GameObject.FindGameObjectsWithTag("Spawner");
     	for (int i = 0; i < spawners.Length; i++) {
     		float distance = Vector3.Distance(spawners[i].transform.position, position);
-    		Debug.Log("Distance is " + distance + " between " + spawners[i].name + " and pointer");
+    		//Debug.Log("Distance is " + distance + " between " + spawners[i].name + " and pointer");
     		if (spawners[i].activeSelf && distance <= spawnRadius) {
     			return true;
     		}
