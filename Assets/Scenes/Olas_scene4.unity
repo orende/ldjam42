@@ -197,7 +197,7 @@ GameObject:
   - component: {fileID: 8868877}
   - component: {fileID: 8868876}
   m_Layer: 5
-  m_Name: Text
+  m_Name: GamerTimerText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2921,6 +2921,11 @@ Prefab:
       propertyPath: winCount
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 114440665290921916, guid: 35c8e2e02ef99c648abffca7404ee41f,
+        type: 2}
+      propertyPath: gameTimerText
+      value: 
+      objectReference: {fileID: 8868876}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35c8e2e02ef99c648abffca7404ee41f, type: 2}
   m_IsPrefabAsset: 0
